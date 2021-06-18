@@ -1,0 +1,12 @@
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50%;
+}
+
+.signupLabel {
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
+}

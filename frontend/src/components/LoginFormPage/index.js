@@ -38,9 +38,14 @@ function LoginFormPage() {
           Password
           <input className="loginInput" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </label>
-        <button className="loginButton" type="submit">
-          Log In
-        </button>
+        <div>
+          <button className="loginButton" type="submit">
+            Log In
+          </button>
+          <button type="button" onClick={() => (window.location.href = "/signup")}>
+            Sign Up Here
+          </button>
+        </div>
       </div>
     </form>
   );
