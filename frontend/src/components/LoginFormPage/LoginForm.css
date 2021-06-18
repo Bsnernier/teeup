@@ -1,0 +1,12 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50%;
+}
+
+.loginLabel {
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
+}
