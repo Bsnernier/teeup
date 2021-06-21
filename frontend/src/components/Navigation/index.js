@@ -37,6 +37,11 @@ function Navigation({ isLoaded }) {
             </NavLink>
           </li>
           <li className="link">
+            <NavLink exact to="/groups">
+              Groups
+            </NavLink>
+          </li>
+          <li className="link">
             <NavLink exact to="/">
               Clubs
             </NavLink>
