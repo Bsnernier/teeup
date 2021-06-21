@@ -1,11 +1,17 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const UserGroups = sequelize.define('UserGroups', {
-    userId: DataTypes.INTEGER,
-    groupId: DataTypes.INTEGER
-  }, {});
-  UserGroups.associate = function(models) {
+  const UserGroup = sequelize.define(
+    "UserGroup",
+    {
+      userId: DataTypes.INTEGER,
+      groupId: DataTypes.INTEGER,
+    },
+    {}
+  );
+  UserGroup.associate = function (models) {
     // associations can be defined here
+    UserGroup.belongsTo(models.User, { foreignKey: "userId" }),
+      UserGroup.belongsTo(models.Group, { foreignKey: "groupId" });
   };
-  return UserGroups;
+  return UserGroup;
 };

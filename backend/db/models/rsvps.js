@@ -1,11 +1,17 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Rsvps = sequelize.define('Rsvps', {
-    eventId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
-  }, {});
-  Rsvps.associate = function(models) {
+  const Rsvp = sequelize.define(
+    "Rsvp",
+    {
+      eventId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
+    },
+    {}
+  );
+  Rsvp.associate = function (models) {
     // associations can be defined here
+    Rsvp.belongsTo(models.User, { foreignKey: "userId" }),
+      Rsvp.belongsTo(models.Event, { foreignKey: "eventId" });
   };
-  return Rsvps;
+  return Rsvp;
 };
