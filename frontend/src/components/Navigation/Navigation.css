@@ -26,17 +26,27 @@ body {
 }
 
 .linkList {
-  position: fixed;
   list-style-type: none;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  margin-left: 40px;
+  margin: 10px 40px;
+  top: 25%;
   background-color: white;
+  font-size: 20px;
+  width: 175px;
 }
 
 .navAndProfile {
+  position: fixed;
   display: flex;
-  justify-content: space-between;
+  top: 280px;
+  left: 20px;
+}
+
+.profile {
+  position: relative;
+  right: 80px;
+  top: 22px;
 }

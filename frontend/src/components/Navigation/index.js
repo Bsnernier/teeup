@@ -30,6 +30,7 @@ function Navigation({ isLoaded }) {
       </div>
       <div className="navAndProfile">
         <ul className="linkList">
+          <span>Welcome User!</span>
           <li className="link">
             <NavLink exact to="/">
               Home
