@@ -21,14 +21,18 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <>
+      <image src="../../../../backend/public/images/balltee.jpg"></image>
+      <h1 className="title">Welcome to Teeup</h1>
+      <ul className="linkList">
+        <li className="link">
+          <NavLink exact to="/">
+            Home
+          </NavLink>
+          {isLoaded && sessionLinks}
+        </li>
+      </ul>
+    </>
   );
 }
 
