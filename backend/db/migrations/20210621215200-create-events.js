@@ -23,7 +23,7 @@ module.exports = {
         references: { model: "Groups" },
       },
       name: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
       date: {
@@ -37,10 +37,12 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
     });
   },

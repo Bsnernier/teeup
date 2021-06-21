@@ -9,16 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       name: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(100),
         allowNull: false,
         unique: true,
       },
       address: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
       city: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(50),
         allowNull: false,
       },
       state: {
@@ -32,10 +32,12 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
     });
   },
