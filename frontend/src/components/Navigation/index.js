@@ -23,12 +23,10 @@ function Navigation({ isLoaded }) {
     <Redirect to="/login" />
   }
 
-  console.log(window.store.getState())
-
   return (
     <>
       <div className="titleBar">
-        <img className="image" src={ballTee}></img>
+        <img className="image" src={ballTee} alt="not found"></img>
         <h1 className="title">Teeup</h1>
       </div>
       <div className="navAndProfile">

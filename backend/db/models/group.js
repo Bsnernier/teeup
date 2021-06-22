@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   Group.associate = function (models) {
     // associations can be defined here
     Group.hasMany(models.Event, { foreignKey: "groupId" }),
-      Group.hasMany(models.UserGroup, { foreignKey: "groupId" });
+    Group.hasMany(models.UserGroup, { foreignKey: "groupId" });
   };
   return Group;
 };

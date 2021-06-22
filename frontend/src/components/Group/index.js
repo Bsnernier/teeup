@@ -2,10 +2,10 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import TestSection from "../TestSection";
-import "./HomePage.css";
+import GroupList from "../GroupList";
+import "./Group.css";
 
-function HomePage() {
+function Group() {
   const sessionUser = useSelector((state) => state.session.user);
 
   if (!sessionUser) {
@@ -15,11 +15,11 @@ function HomePage() {
   return (
     <>
       <div className="flexTest">
-        <TestSection />
-        <TestSection />
+        <GroupList title="Your Groups"/>
+        <GroupList title="Club/Event Groups"/>
       </div>
     </>
   );
 }
 
-export default HomePage;
+export default Group;
