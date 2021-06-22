@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
@@ -20,7 +20,9 @@ function Navigation({ isLoaded }) {
         <NavLink to="/signup">Sign Up</NavLink>
       </>
     );
+    <Redirect to="/login" />
   }
+
   console.log(window.store.getState())
 
   return (
@@ -31,8 +33,7 @@ function Navigation({ isLoaded }) {
       </div>
       <div className="navAndProfile">
         <ul className="linkList">
-          {/* <span>Welcome {sessionUser.username}!</span> */}
-          {sessionUser ? <span>Welcome {sessionUser.username}!</span> : <span>Welcome to Teeup!</span>}
+          {sessionUser ? <span>Welcome {sessionUser.username}!</span> : <span>Welcome!</span>}
           <li className="link">
             <NavLink exact to="/">
               Home
