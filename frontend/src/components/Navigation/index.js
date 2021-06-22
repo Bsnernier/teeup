@@ -21,6 +21,7 @@ function Navigation({ isLoaded }) {
       </>
     );
   }
+  console.log(window.store.getState())
 
   return (
     <>
@@ -30,7 +31,8 @@ function Navigation({ isLoaded }) {
       </div>
       <div className="navAndProfile">
         <ul className="linkList">
-          <span>Welcome User!</span>
+          {/* <span>Welcome {sessionUser.username}!</span> */}
+          {sessionUser ? <span>Welcome {sessionUser.username}!</span> : <span>Welcome to Teeup!</span>}
           <li className="link">
             <NavLink exact to="/">
               Home

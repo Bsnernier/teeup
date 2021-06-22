@@ -35,7 +35,7 @@ body {
   top: 25%;
   background-color: white;
   font-size: 20px;
-  width: 175px;
+  width: 280px;
 }
 
 .navAndProfile {
@@ -47,6 +47,7 @@ body {
 
 .profile {
   position: relative;
-  right: 80px;
+  /* right: 180px; */
+  left: -140px;
   top: 22px;
 }
