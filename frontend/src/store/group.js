@@ -15,20 +15,16 @@ export const listGroups = () => async (dispatch) => {
   if (response.ok) {
     const list = await response.json()
     dispatch(getGroups(list))
+    return getGroups(list)
   }
 }
 
-const initialState = { user: null };
+const initialState = {};
 
 const groupReducer = ( state = initialState, action ) => {
   switch (action.type) {
     case GET_GROUPS: {
-      const allGroups = {};
-      action.list.forEach((group) => {
-        allGroups[group.userId] = group
-      })
       return {
-        ...allGroups,
         ...state,
         list: action.list
       }
