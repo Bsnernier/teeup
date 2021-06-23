@@ -5,7 +5,8 @@ import * as sessionActions from "./store/session";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
-import Group from "./components/Group"
+import Group from "./components/Group";
+import Clubs from "./components/Clubs";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/groups">
             <Group />
+          </Route>
+          <Route path="/clubs">
+            <Clubs />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

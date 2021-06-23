@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
         <NavLink to="/signup">Sign Up</NavLink>
       </>
     );
-    <Redirect to="/login" />
+    <Redirect to="/login" />;
   }
 
   return (
@@ -31,7 +31,11 @@ function Navigation({ isLoaded }) {
       </div>
       <div className="navAndProfile">
         <ul className="linkList">
-          {sessionUser ? <span>Welcome {sessionUser.username}!</span> : <span>Welcome!</span>}
+          {sessionUser ? (
+            <span>Welcome {sessionUser.username}!</span>
+          ) : (
+            <span>Welcome!</span>
+          )}
           <li className="link">
             <NavLink exact to="/">
               Home
@@ -43,7 +47,7 @@ function Navigation({ isLoaded }) {
             </NavLink>
           </li>
           <li className="link">
-            <NavLink exact to="/">
+            <NavLink exact to="/clubs">
               Clubs
             </NavLink>
           </li>

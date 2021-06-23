@@ -1,0 +1,23 @@
+.groupBubble {
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  color: black;
+  position: relative;
+  left: 150px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.groupName {
+  font-size: 30px;
+  padding: 20px;
+}
+
+.groupArranger {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

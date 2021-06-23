@@ -13,17 +13,11 @@ router.get(
   "/",
   requireAuth,
   asyncHandler(async (req, res) => {
-    const allGroups = await UserGroup.findAll({
-      include: [User, Group],
+    const allClubs = await Club.findAll({
+      include: [Event],
       order: [["createdAt", "DESC"]],
     });
-    const groups = res.json(allGroups);
-    // const allEvents = await Event.findAll({
-    //   include: [User, Group, Club],
-    //   order: [["createdAt", "DESC"]],
-    // });
-    // const events = res.json(allEvents);
-    return { groups };
+    return res.json(allClubs);
   })
 );
 

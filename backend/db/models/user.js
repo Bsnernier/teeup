@@ -52,8 +52,8 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function (models) {
     // associations can be defined here
     User.hasMany(models.Event, { foreignKey: "hostId" }),
-      User.hasMany(models.Event, { foreignKey: "userId" }),
-      User.hasMany(models.Event, { foreignKey: "userId" });
+      User.hasMany(models.Rsvp, { foreignKey: "userId" }),
+      User.hasMany(models.UserGroup, { foreignKey: "userId" });
   };
 
   //This method will return an object with only the User
