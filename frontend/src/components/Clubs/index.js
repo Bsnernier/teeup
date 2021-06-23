@@ -24,17 +24,6 @@ function Clubs() {
     setAllClubs(clubs.list);
   };
 
-  // const findClubs = () => {
-  //   allClubs.map((group) => {
-  //     if (group.userId === sessionUser.id) clubs.push(group);
-  //   });
-  //   return clubs;
-  // };
-  // if (allClubs) {
-  //   findClubs();
-  // }
-  console.log(allClubs);
-
   return (
     <div className="clubBubble">
       <h1>Clubs</h1>

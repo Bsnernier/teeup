@@ -29,7 +29,6 @@ function EventGroupList(title) {
   if (allGroups) {
     findYourGroups();
   }
-  console.log(yourGroups[0]);
 
   return (
     <div className="groupBubble">

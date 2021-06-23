@@ -21,4 +21,16 @@ router.get(
   })
 );
 
+router.get(
+  "/:id",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const allClubs = await Club.findAll({
+      include: [Event],
+      order: [["createdAt", "DESC"]],
+    });
+    return res.json(allClubs);
+  })
+);
+
 module.exports = router;
