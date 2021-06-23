@@ -2,7 +2,8 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import GroupList from "../GroupList";
+import YourGroupList from "../GroupList";
+import EventGroupList from "../GroupList";
 import "./Group.css";
 
 function Group() {
@@ -15,8 +16,8 @@ function Group() {
   return (
     <>
       <div className="flexTest">
-        <GroupList title="Your Groups"/>
-        <GroupList title="Club/Event Groups"/>
+        <YourGroupList title="Your Groups"/>
+        <EventGroupList title="Club/Event Groups"/>
       </div>
     </>
   );

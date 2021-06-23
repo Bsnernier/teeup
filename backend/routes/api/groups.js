@@ -5,7 +5,7 @@ const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 
-const { User, UserGroup } = require("../../db/models");
+const { User, UserGroup, Group } = require("../../db/models");
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const allGroups = await UserGroup.findAll({
-      include: User,
+      include: [ User, Group ],
       order: [["createdAt", "DESC"]]
     });
     return res.json(allGroups)

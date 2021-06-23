@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 // import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {listGroups} from "../../store/group"
-import "./YourGroupList.css";
+import "./EventGroupList.css";
 
-function YourGroupList(title) {
+function EventGroupList(title) {
 
   const sessionUser = useSelector((state) => state.session.user);
   const sessionGroup = useSelector((state) => state.group)
@@ -35,7 +35,7 @@ function YourGroupList(title) {
 
 
   return (
-    <div className="groupBubble">
+    <div className="eventgroupBubble">
       <h1>{title.title}</h1>
       <div>
         { !allGroups ? <div key='0'>There are 0 groups!</div> :
@@ -48,4 +48,4 @@ function YourGroupList(title) {
   );
 }
 
-export default YourGroupList;
+export default EventGroupList;
