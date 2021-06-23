@@ -1,4 +1,12 @@
 .clubAddress {
   text-align: center;
   margin: 0px;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  padding-top: 20px;
+}
+
+.eventArranger {
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
 }

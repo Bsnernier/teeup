@@ -1,7 +1,7 @@
 .groupBubble {
   width: 800px;
   height: 500px;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   color: black;
   position: relative;
   left: 150px;
@@ -20,4 +20,6 @@ h1 {
 .groupArranger {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
 }
