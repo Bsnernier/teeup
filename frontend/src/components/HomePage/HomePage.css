@@ -11,12 +11,13 @@
 }
 
 .homeBubble {
-  width: 800px;
-  height: 500px;
+  width: auto;
+  min-height: 250px;
+  height: auto;
   background-color: white;
   color: black;
   position: relative;
-  left: 150px;
+  left: 100px;
 }
 
 h1 {
@@ -32,4 +33,13 @@ h1 {
 .homeGroupArranger {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.groupAndButton {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+.joinGroupButton {
+  padding: 0px 10px;
+  margin-right: 20px;
 }
