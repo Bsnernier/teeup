@@ -31,6 +31,38 @@ module.exports = {
           lastName: "Userer",
           handicap: 2,
         },
+        {
+          email: faker.internet.email(),
+          username: "Invincible",
+          hashedPassword: bcrypt.hashSync(faker.internet.password()),
+          firstName: "Mark",
+          lastName: "Grayson",
+          handicap: 18,
+        },
+        {
+          email: faker.internet.email(),
+          username: "Superman",
+          hashedPassword: bcrypt.hashSync(faker.internet.password()),
+          firstName: "Clark",
+          lastName: "Kent",
+          handicap: 0,
+        },
+        {
+          email: faker.internet.email(),
+          username: "Jujutsu",
+          hashedPassword: bcrypt.hashSync(faker.internet.password()),
+          firstName: "Nobara",
+          lastName: "Kugisaki",
+          handicap: 3,
+        },
+        {
+          email: faker.internet.email(),
+          username: "Rainbowleprechaun",
+          hashedPassword: bcrypt.hashSync(faker.internet.password()),
+          firstName: "Paul",
+          lastName: "Joneson",
+          handicap: 3,
+        },
       ],
       {}
     );
@@ -41,7 +73,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       "Users",
       {
-        username: { [Op.in]: ["Demo-lition", "FakeUser1", "FakeUser2"] },
+        username: { [Op.in]: ["Demo-lition", "FakeUser1", "FakeUser2", "Invincible", "Superman", "Jujutsu", "Rainbowleprechaun"] },
       },
       {}
     );
