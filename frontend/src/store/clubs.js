@@ -1,11 +1,19 @@
 import { csrfFetch } from "./csrf";
 
 const GET_CLUBS = "clubs/getClubs";
+const GET_ONE_CLUB = "clubs/getOneClub";
 
 const getClubs = (list) => {
   return {
     type: GET_CLUBS,
     list,
+  };
+};
+
+const getOneClub = (id) => {
+  return {
+    type: GET_ONE_CLUB,
+    id,
   };
 };
 
@@ -19,6 +27,16 @@ export const listClubs = () => async (dispatch) => {
   }
 };
 
+export const listClub = (id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/clubs/${id}`);
+
+  if (response.ok) {
+    const club = await response.json();
+    dispatch(getOneClub(club));
+    return getOneClub(club);
+  }
+};
+
 const initialState = {};
 
 const clubsReducer = (state = initialState, action) => {
@@ -27,6 +45,12 @@ const clubsReducer = (state = initialState, action) => {
       return {
         ...state,
         list: action.list,
+      };
+    }
+    case GET_ONE_CLUB: {
+      return {
+        state,
+        id: action.id,
       };
     }
     default:

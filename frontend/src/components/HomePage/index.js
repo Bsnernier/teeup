@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { listGroups } from "../../store/group";
+import { listGroups, addToGroup } from "../../store/group";
 import { listEvents } from "../../store/events";
 
 import TestSection from "../TestSection";
@@ -61,7 +61,11 @@ function HomePage() {
   if (allGroups) {
     findSingleGroups();
   }
-  console.log(allGroups);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    addToGroup(e.target.id);
+  };
 
   return (
     <>
@@ -78,7 +82,13 @@ function HomePage() {
                     {group}
                   </span>
                   <span>Capacity: {findGroupCapacity(group)}/4</span>
-                  <button className="joinGroupButton" key={group?.id}>
+                  <button
+                    type="button"
+                    className="joinGroupButton"
+                    id={group}
+                    key={group?.id}
+                    onClick={handleClick}
+                  >
                     Join
                   </button>
                 </div>

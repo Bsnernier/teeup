@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listClubs } from "../../store/clubs";
 
@@ -33,7 +33,9 @@ function Clubs() {
         ) : (
           allClubs.map((club) => (
             <div className="clubInfo" key={club.id}>
-              <div>{club.name}</div>
+              <NavLink key={club.name} to={`/clubs/${club.id}`}>
+                {club.name}
+              </NavLink>
               <div>{club.address}</div>
               <div>{club.city}</div>
               <div>{club.state}</div>

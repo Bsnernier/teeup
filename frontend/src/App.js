@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import Group from "./components/Group";
 import Clubs from "./components/Clubs";
+import OneClub from "./components/OneClub";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,8 +27,11 @@ function App() {
           <Route path="/groups">
             <Group />
           </Route>
-          <Route path="/clubs">
+          <Route exact path="/clubs">
             <Clubs />
+          </Route>
+          <Route path="/clubs/:id">
+            <OneClub />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

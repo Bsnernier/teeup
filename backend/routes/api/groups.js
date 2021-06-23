@@ -18,12 +18,15 @@ router.get(
       order: [["createdAt", "DESC"]],
     });
     const groups = res.json(allGroups);
-    // const allEvents = await Event.findAll({
-    //   include: [User, Group, Club],
-    //   order: [["createdAt", "DESC"]],
-    // });
-    // const events = res.json(allEvents);
     return { groups };
+  })
+);
+
+router.post(
+  "/",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    // const updatedUserGroups = await UserGroup.create();
   })
 );
 

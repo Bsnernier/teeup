@@ -25,11 +25,8 @@ router.get(
   "/:id",
   requireAuth,
   asyncHandler(async (req, res) => {
-    const allClubs = await Club.findAll({
-      include: [Event],
-      order: [["createdAt", "DESC"]],
-    });
-    return res.json(allClubs);
+    const oneClub = await Club.findByPk(req.params.id);
+    return res.json(oneClub);
   })
 );
 

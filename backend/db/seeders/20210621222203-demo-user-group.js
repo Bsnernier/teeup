@@ -102,14 +102,6 @@ module.exports = {
           groupId: 6,
         },
         {
-          userId: 4,
-          groupId: 7,
-        },
-        {
-          userId: 5,
-          groupId: 7,
-        },
-        {
           userId: 6,
           groupId: 7,
         },
@@ -148,10 +140,6 @@ module.exports = {
         {
           userId: 1,
           groupId: 9,
-        },
-        {
-          userId: 2,
-          groupId: 10,
         },
         {
           userId: 3,
@@ -187,10 +175,6 @@ module.exports = {
         },
         {
           userId: 4,
-          groupId: 12,
-        },
-        {
-          userId: 5,
           groupId: 12,
         },
         {
