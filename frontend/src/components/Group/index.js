@@ -17,7 +17,7 @@ function Group() {
     <>
       <div className="flexTest">
         <YourGroupList title="Your Groups"/>
-        <EventGroupList title="Club/Event Groups"/>
+        <EventGroupList title="Your Group Events"/>
       </div>
     </>
   );

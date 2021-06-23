@@ -1,6 +1,12 @@
 .groupBubble {
-  width: 500px;
+  width: 800px;
   height: 2000px;
   background-color: white;
   color: black;
+  position:relative;
+  left: 150px
+}
+
+h1 {
+  text-align: center;
 }
