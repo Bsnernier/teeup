@@ -23,10 +23,16 @@ router.get(
 );
 
 router.post(
-  "/",
+  "/:id",
   requireAuth,
   asyncHandler(async (req, res) => {
-    // const updatedUserGroups = await UserGroup.create();
+    const groupId = Object.keys(req.body)[0];
+    const userId = Object.values(req.body)[0];
+    console.log(groupId);
+    const newUserGroup = await UserGroup.create({
+      userId,
+      groupId,
+    });
   })
 );
 

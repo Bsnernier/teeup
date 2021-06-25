@@ -33,6 +33,10 @@ function HomePage() {
     setAllEvents(events.list);
   };
 
+  const sendAddToGroup = async (id) => {
+    let updatedGroups = await dispatch(addToGroup(id));
+  };
+
   allGroups?.map((group) => {
     if (group.userId === sessionUser.id) yourGroups.push(group.Group.name);
   });
@@ -49,21 +53,26 @@ function HomePage() {
 
   const findSingleGroups = () => {
     allGroups.map((group) => {
+      let test = Object.values(group);
       if (
-        !singleGroups.includes(group.Group?.name) &&
+        !singleGroups.includes(test[6].name) &&
         !yourGroups.includes(group.Group?.name)
-      )
-        singleGroups.push(group.Group?.name);
+      ) {
+        singleGroups.push(group?.Group);
+      }
     });
     return singleGroups;
   };
+
   if (allGroups) {
     findSingleGroups();
   }
 
   const handleClick = (e) => {
     e.preventDefault();
-    addToGroup(e.target.id);
+    const test = {};
+    test[e.target.id] = sessionUser.id;
+    sendAddToGroup(test);
   };
 
   return (
@@ -78,15 +87,18 @@ function HomePage() {
               singleGroups.map((group) => (
                 <div className="groupAndButton">
                   <span className="groupName" key={group?.name}>
-                    {group}
+                    {group.name}
                   </span>
-                  <span>Capacity: {findGroupCapacity(group)}/4</span>
+                  <span>Capacity: {findGroupCapacity(group.name)}/4</span>
                   <button
                     type="button"
                     className="joinGroupButton"
-                    id={group}
+                    id={group.id}
                     key={group?.id}
                     onClick={handleClick}
+                    disabled={
+                      findGroupCapacity(group.name) === 4 ? true : false
+                    }
                   >
                     Join
                   </button>

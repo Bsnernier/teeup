@@ -10,9 +10,9 @@ const getGroups = (list) => {
   };
 };
 
-const addOneUser = (groups) => ({
+const addOneUser = (id) => ({
   type: ADD_ONE,
-  groups,
+  id,
 });
 
 export const listGroups = () => async (dispatch) => {
@@ -26,7 +26,7 @@ export const listGroups = () => async (dispatch) => {
 };
 
 export const addToGroup = (payload) => async (dispatch) => {
-  const response = await csrfFetch("/api/groups", {
+  const response = await csrfFetch(`/api/groups/${payload}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -52,8 +52,8 @@ const groupReducer = (state = initialState, action) => {
     }
     case ADD_ONE: {
       return {
-        ...state,
-        groups: action.groups,
+        state,
+        id: action.id,
       };
     }
     default:
