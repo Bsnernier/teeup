@@ -38,8 +38,11 @@ function YourGroupList(title) {
           <div key="0">There are 0 groups!</div>
         ) : (
           yourGroups.map((group) => (
-            <div className="groupName" key={group.id}>
-              {group.Group.name}
+            <div>
+              <div className="groupName" key={group.id}>
+                {group.Group.name}
+              </div>
+              <button>Leave Group</button>
             </div>
           ))
         )}

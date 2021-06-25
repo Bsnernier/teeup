@@ -9,7 +9,6 @@ function Clubs() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const [allClubs, setAllClubs] = useState();
-  let clubs = [];
 
   useEffect(() => {
     getAllClubs();

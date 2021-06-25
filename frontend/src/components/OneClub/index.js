@@ -30,7 +30,7 @@ function OneClub() {
 
   const getAllEvents = async () => {
     let events = await dispatch(listEvents());
-    setAllEvents(events.list);
+    setAllEvents(events.events);
   };
 
   allEvents?.map((event) => {
@@ -38,8 +38,6 @@ function OneClub() {
       clubEvents.push(event);
     }
   });
-
-  console.log(clubEvents);
 
   return (
     <div className="clubBubble">
@@ -55,7 +53,7 @@ function OneClub() {
             <div className="clubInfo" key={event.id}>
               <div key={event.name}>{event.name}</div>
               <div key={event.date}>{event.date}</div>
-              <div key={event.capacity}>{event.capacity}</div>
+              <div key={event.capacity}>Group Capacity: {event.capacity}</div>
               <button type="button">Reserve a Spot!</button>
             </div>
           ))

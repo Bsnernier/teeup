@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { listGroups, addToGroup } from "../../store/group";
 import { listEvents } from "../../store/events";
 
-import TestSection from "../TestSection";
 import "./HomePage.css";
 
 function HomePage() {
@@ -96,7 +95,6 @@ function HomePage() {
             )}
           </div>
         </div>
-        <TestSection />
       </div>
     </>
   );

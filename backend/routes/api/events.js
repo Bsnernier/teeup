@@ -21,16 +21,29 @@ router.get(
   })
 );
 
-// router.get(
-//   "/:id",
-//   requireAuth,
-//   asyncHandler(async (req, res) => {
-//     const allClubs = await Event.findAll({
-//       include: [Event],
-//       order: [["createdAt", "DESC"]],
-//     });
-//     return res.json(allClubs);
-//   })
-// );
+router.get("/group/:id"),
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const groupEvents = await Event.findAll({
+      include: [User, Group, Club],
+      where: {
+        groupId: req.params.id,
+      },
+      order: [["createdAt", "DESC"]],
+    });
+    return res.json(groupEvents);
+  });
+
+router.get(
+  "/:id",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const allClubs = await Event.findAll({
+      include: [Event],
+      order: [["createdAt", "DESC"]],
+    });
+    return res.json(allClubs);
+  })
+);
 
 module.exports = router;

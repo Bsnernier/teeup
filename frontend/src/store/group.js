@@ -53,7 +53,7 @@ const groupReducer = (state = initialState, action) => {
     case ADD_ONE: {
       return {
         ...state,
-        list: action.list,
+        groups: action.groups,
       };
     }
     default:

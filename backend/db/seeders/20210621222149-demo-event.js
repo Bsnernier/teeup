@@ -24,7 +24,7 @@ module.exports = {
         {
           hostId: 3,
           clubId: 2,
-          groupId: 1,
+          groupId: 4,
           name: "Lobster Classic",
           date: "2021-07-01 11:00:00",
           capacity: 4,
@@ -32,7 +32,7 @@ module.exports = {
         {
           hostId: 3,
           clubId: 4,
-          groupId: 1,
+          groupId: 6,
           name: "App Academy Open",
           date: "2021-02-08 10:00:00",
           capacity: 100,
@@ -40,7 +40,7 @@ module.exports = {
         {
           hostId: 2,
           clubId: 5,
-          groupId: 1,
+          groupId: 8,
           name: "Crab Classic",
           date: "2023-06-15 03:00:00",
           capacity: 200,
@@ -48,7 +48,7 @@ module.exports = {
         {
           hostId: 1,
           clubId: 6,
-          groupId: 2,
+          groupId: 9,
           name: "Clam Classic",
           date: "2042-06-18 14:00:00",
           capacity: 15000,
@@ -56,7 +56,7 @@ module.exports = {
         {
           hostId: 3,
           clubId: 7,
-          groupId: 1,
+          groupId: 11,
           name: "Oyster Open",
           date: "2021-07-01 11:00:00",
           capacity: 4,
@@ -94,7 +94,8 @@ module.exports = {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete("Events", {
       name: {
-        [Op.in]: ["Crawfish Classic",
+        [Op.in]: [
+          "Crawfish Classic",
           "Shrimp Classic",
           "Lobster Classic",
           "App Academy Open",
@@ -103,7 +104,8 @@ module.exports = {
           "Oyster Open",
           "Mussel Match",
           "Snail Showdown",
-          "Barnacle Battle"],
+          "Barnacle Battle",
+        ],
       },
     });
   },
