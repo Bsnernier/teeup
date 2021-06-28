@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listGroups, addToGroup } from "../../store/group";
 import { listEvents } from "../../store/events";
@@ -9,6 +9,7 @@ import "./HomePage.css";
 function HomePage() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [allGroups, setAllGroups] = useState();
   const [allEvents, setAllEvents] = useState();
   let singleGroups = [];
@@ -54,8 +55,12 @@ function HomePage() {
   const findSingleGroups = () => {
     allGroups.map((group) => {
       let test = Object.values(group);
+      let singleNames = [];
+      if (singleGroups) {
+        singleGroups.forEach((group) => singleNames.push(group.name));
+      }
       if (
-        !singleGroups.includes(test[6].name) &&
+        !singleNames.includes(test[6].name) &&
         !yourGroups.includes(group.Group?.name)
       ) {
         singleGroups.push(group?.Group);
@@ -70,9 +75,11 @@ function HomePage() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const test = {};
-    test[e.target.id] = sessionUser.id;
-    sendAddToGroup(test);
+    const newGroupPayload = {};
+    newGroupPayload[e.target.id] = sessionUser.id;
+    sendAddToGroup(newGroupPayload);
+    history.push("/");
+    return history;
   };
 
   return (

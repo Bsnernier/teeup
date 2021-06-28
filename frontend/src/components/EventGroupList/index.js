@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import { NavLink } from "react-router-dom";
+import moment from "moment";
+// import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listGroups } from "../../store/group";
 import { listEvents, singleGroupEvents } from "../../store/events";
@@ -10,8 +11,9 @@ function EventGroupList(title) {
   const dispatch = useDispatch();
   const [allGroups, setAllGroups] = useState();
   const [allEvents, setAllEvents] = useState([]);
-  // const [groupEvents, setGroupEvents] = useState();
+  const [groupEvents, setGroupEvents] = useState();
   let yourGroups = [];
+  let eventGroupIds = [];
 
   useEffect(() => {
     getAllGroups();
@@ -33,33 +35,61 @@ function EventGroupList(title) {
   //   setGroupEvents(event.groupEvents);
   // };
 
-  // const findYourGroups = () => {
-  //   allGroups.map((group) => {
-  //     if (group.userId === sessionUser.id) yourGroups.push(group);
-  // });
-  //   return yourGroups;
+  const findYourGroups = () => {
+    allGroups.map((group) => {
+      if (group.userId === sessionUser.id) yourGroups.push(group);
+    });
+    return yourGroups;
+  };
+
+  if (allGroups) {
+    findYourGroups();
+  }
+
+  // const findGroupEvents = (id) => {
+  //   yourGroups.map((group) => {
+  //     // console.log("id", id);
+  //     // console.log("group", group);
+  //     allEvents.forEach((event) => {
+  //       // console.log("event", event);
+  //       if (event.id === id) {
+  //         console.log(event.name);
+  //         setGroupEvents(event.name);
+  //       }
+  //     });
+  //   });
+  //   return groupEvents;
   // };
 
-  // if (allGroups) {
-  //   findYourGroups();
-  // }
+  console.log(allEvents);
 
   // const findGroupEvent = (id) => {
   //   allEvents?.filter((event) => event.groupId === id);
   // };
-
   return (
-    <div className="groupBubble">
+    <div className="eventBubble">
       <h1>{title.title}</h1>
-      <div>
+      <div className="eventArranger">
         {!allEvents ? (
           <div key="0">There are 0 events!</div>
         ) : (
-          yourGroups.map((group) => (
-            <div key={group.id}>
-              {group.Group.name} plays in the
-              {/* {findEventByGroupId(group.id)} */}
-            </div>
+          allEvents.map((event) => (
+            <>
+              <div key={event.id} className="groupName">
+                {event.Group.name} - {event.name}
+              </div>
+              <div className="eventName">Club: {event.Club.name}</div>
+              {/* <div className="eventLocation">
+                Location: {event.Club.address} {event.Club.city},{" "}
+                {event.Club.state}, {event.Club.zipCode}
+              </div> */}
+              <div className="eventDate">
+                Date: {moment(event.date).format("MM-DD-YYYY")}
+              </div>
+              <div className="eventTime">
+                Time: {moment(event.date).format("h:mm")}
+              </div>
+            </>
           ))
         )}
       </div>

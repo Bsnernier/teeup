@@ -28,7 +28,7 @@ export const listEvents = () => async (dispatch) => {
 };
 
 export const singleGroupEvents = (id) => async (dispatch) => {
-  const response = await csrfFetch(`/api/events/`);
+  const response = await csrfFetch(`/api/events/${id}`);
 
   if (response.ok) {
     const events = await response.json();

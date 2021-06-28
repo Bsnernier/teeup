@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const GET_GROUPS = "groups/getGroups";
 const ADD_ONE = "groups/addOne";
+const LEAVE_ONE = "groups/leaveOneGroup";
 
 const getGroups = (list) => {
   return {
@@ -12,6 +13,11 @@ const getGroups = (list) => {
 
 const addOneUser = (id) => ({
   type: ADD_ONE,
+  id,
+});
+
+const leaveOneGroup = (id) => ({
+  type: LEAVE_ONE,
   id,
 });
 
@@ -40,6 +46,19 @@ export const addToGroup = (payload) => async (dispatch) => {
   }
 };
 
+export const removeFromGroup = (payload) => async (dispatch) => {
+  const response = await csrfFetch(`/api/groups/${payload}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    const removeReq = await response.json();
+    dispatch(leaveOneGroup(removeReq));
+  }
+};
+
 const initialState = {};
 
 const groupReducer = (state = initialState, action) => {
@@ -51,6 +70,12 @@ const groupReducer = (state = initialState, action) => {
       };
     }
     case ADD_ONE: {
+      return {
+        state,
+        id: action.id,
+      };
+    }
+    case LEAVE_ONE: {
       return {
         state,
         id: action.id,

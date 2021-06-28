@@ -39,7 +39,6 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     const allClubs = await Event.findAll({
-      include: [Event],
       order: [["createdAt", "DESC"]],
     });
     return res.json(allClubs);

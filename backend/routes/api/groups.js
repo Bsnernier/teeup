@@ -28,11 +28,23 @@ router.post(
   asyncHandler(async (req, res) => {
     const groupId = Object.keys(req.body)[0];
     const userId = Object.values(req.body)[0];
-    console.log(groupId);
     const newUserGroup = await UserGroup.create({
       userId,
       groupId,
     });
+  })
+);
+
+router.delete(
+  "/:id",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const groupId = req.body.id;
+    // const userId = Object.values(req.body)[0];
+    const currentGroup = await UserGroup.findByPk(req.params.id);
+    if (currentGroup.id === groupId) {
+      await currentGroup.destroy();
+    }
   })
 );
 

@@ -54,7 +54,7 @@ function OneClub() {
               <div key={event.name}>{event.name}</div>
               <div key={event.date}>{event.date}</div>
               <div key={event.capacity}>Group Capacity: {event.capacity}</div>
-              <button type="button">Reserve a Spot!</button>
+              <button type="button">Reserve a Spot for Your Group!</button>
             </div>
           ))
         )}

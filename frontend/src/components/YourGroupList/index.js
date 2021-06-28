@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { listGroups } from "../../store/group";
+import { listGroups, removeFromGroup } from "../../store/group";
 import "./YourGroupList.css";
 
 function YourGroupList(title) {
@@ -20,6 +20,10 @@ function YourGroupList(title) {
     setAllGroups(groups.list);
   };
 
+  const sendRemoveFromGroup = async (id) => {
+    let updatedGroups = await dispatch(removeFromGroup(id));
+  };
+
   const findYourGroups = () => {
     allGroups.map((group) => {
       if (group.userId === sessionUser.id) yourGroups.push(group);
@@ -29,6 +33,13 @@ function YourGroupList(title) {
   if (allGroups) {
     findYourGroups();
   }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const newGroupPayload = {};
+    // newGroupPayload[e.target.id] = sessionUser.id;
+    sendRemoveFromGroup(e.target.id);
+  };
 
   return (
     <div className="groupBubble">
@@ -42,7 +53,9 @@ function YourGroupList(title) {
               <div className="groupName" key={group.id}>
                 {group.Group.name}
               </div>
-              <button>Leave Group</button>
+              <button onClick={handleClick} id={group.id}>
+                Leave Group
+              </button>
             </div>
           ))
         )}

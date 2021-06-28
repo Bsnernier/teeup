@@ -1,13 +1,39 @@
-.groupBubble {
-  width: 800px;
-  height: 2000px;
+.eventBubble {
+  width: 600px;
+  /* height: 2000px; */
   background-color: rgb(0, 0, 0, 0.5);
   color: white;
   position: relative;
   left: 150px;
 }
 
-.groupBubble h1 {
+.eventBubble h1 {
   text-align: center;
   background-color: rgb(0, 0, 0, 0.5);
+}
+
+.eventArranger {
+  height: auto;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+}
+
+.eventName {
+  font-size: 20px;
+  padding: 0px 20px;
+}
+
+.eventLocation {
+  font-size: 20px;
+  padding: 0px 20px;
+}
+.eventDate {
+  font-size: 20px;
+  padding: 0px 20px;
+}
+.eventTime {
+  font-size: 20px;
+  padding: 0px 0px 20px 20px;
+  border-bottom: 1px solid white;
 }
