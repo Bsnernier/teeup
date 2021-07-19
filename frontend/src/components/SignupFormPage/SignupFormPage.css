@@ -2,11 +2,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 200px;
+  justify-content: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 330px;
+  background-color: white;
 }
 
 .signupLabel {
   width: 310px;
   display: flex;
   justify-content: space-between;
+}
+
+.errors {
+  padding: 0px;
+  list-style-type: none;
+  color: red;
+}
+
+.errors-error::before {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-image: url(./error.png);
+  background-size: 10px;
 }

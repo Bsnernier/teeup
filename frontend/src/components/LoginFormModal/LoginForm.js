@@ -12,26 +12,40 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
+    return dispatch(sessionActions.login({ credential, password })).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
   };
 
   return (
     <form className="loginModalBox" onSubmit={handleSubmit}>
-      <ul>
+      <ul className="errors">
         {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <li key={idx} className="errors-error">
+            {error}
+          </li>
         ))}
       </ul>
       <label>
         Username or Email
-        <input type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
+        <input
+          type="text"
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          required
+        />
       </label>
       <label>
         Password
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
       </label>
       <button type="submit">Log In</button>
     </form>
