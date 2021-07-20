@@ -1,4 +1,17 @@
 .loginModalBox {
-  background-color: white;
-  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: rgb(0, 0, 0, 0);
+  color: white;
+}
+
+#modal-content {
+  display: flex;
+  flex-wrap: wrap;
+  height: 15%;
+  width: 400px;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
 }

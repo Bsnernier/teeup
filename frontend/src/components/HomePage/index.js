@@ -99,7 +99,11 @@ function HomePage() {
                   <span>Capacity: {findGroupCapacity(group.name)}/4</span>
                   <button
                     type="button"
-                    className="joinGroupButton"
+                    className={
+                      findGroupCapacity(group.name) === 4
+                        ? "disabled"
+                        : "joinGroupButton"
+                    }
                     id={group.id}
                     key={group?.id}
                     onClick={handleClick}

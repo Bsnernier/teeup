@@ -52,7 +52,7 @@ function Navigation({ isLoaded }) {
             </NavLink>
           </li>
           <li className="link">
-            <NavLink exact to="/">
+            <NavLink exact to="/calendar">
               Calendar
             </NavLink>
           </li>
