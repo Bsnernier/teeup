@@ -9,10 +9,12 @@ function Calendar() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
-  const [today, setToday] = useState();
+  const [todayDate, setTodayDate] = useState(startOfToday);
+  const [todayDay, setTodayDay] = useState(getDay(todayDate));
   const [selectedDate, setSelectedDate] = useState();
   const [prevMonth, setPrevMonth] = useState();
   const [currMonth, setCurrMonth] = useState();
+  const [daysInMonth, setDaysInMonth] = useState(getDaysInMonth(todayDate));
 
   if (!sessionUser) {
     return <Redirect to="/login" />;
@@ -20,15 +22,15 @@ function Calendar() {
 
   return (
     <div className="calContainer">
-      <div className="dayRow">Sunday</div>
-      <div className="dayRow">Monday</div>
-      <div className="dayRow">Tuesday</div>
-      <div className="dayRow">Wednesday</div>
-      <div className="dayRow">Thursday</div>
-      <div className="dayRow">Friday</div>
-      <div className="dayRow">Saturday</div>
-      <div>{getDay(startOfToday())}</div>
-      <div>{getDaysInMonth(startOfToday())}</div>
+      <div className="grid__day">Sunday</div>
+      <div className="grid__day">Monday</div>
+      <div className="grid__day">Tuesday</div>
+      <div className="grid__day">Wednesday</div>
+      <div className="grid__day">Thursday</div>
+      <div className="grid__day">Friday</div>
+      <div className="grid__day">Saturday</div>
+      <div className={`grid_week-1-${todayDay}`}>{todayDay}</div>
+      <div className="grid_week-1-test">{daysInMonth}</div>
     </div>
   );
 }

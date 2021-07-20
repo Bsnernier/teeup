@@ -34,11 +34,11 @@ function App() {
           <Route path="/clubs/:id">
             <OneClub />
           </Route>
-          <Route>
-            <Calendar path="/calendar" />
-          </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route>
+            <Calendar path="/calendar" />
           </Route>
         </Switch>
       )}

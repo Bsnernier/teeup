@@ -61,8 +61,6 @@ function EventGroupList(title) {
   //   return groupEvents;
   // };
 
-  console.log(allEvents);
-
   // const findGroupEvent = (id) => {
   //   allEvents?.filter((event) => event.groupId === id);
   // };
