@@ -9,6 +9,7 @@ import {
   startOfMonth,
   lastDayOfMonth,
   toDate,
+  format,
 } from "date-fns";
 
 import "./Calendar.css";
@@ -18,14 +19,11 @@ function Calendar() {
   const dispatch = useDispatch();
 
   const [todayDate, setTodayDate] = useState(startOfToday);
-  const [todayDay, setTodayDay] = useState(getDay(todayDate));
+  const [todayDayNum, setTodayDayNum] = useState(format(todayDate, "d"));
   const [todayMonth, setTodayMonth] = useState(getMonth(todayDate));
   const [prevMonth, setPrevMonth] = useState(todayMonth - 1);
   const [prevMonthDate, setPrevMonthDate] = useState(
     toDate(new Date(2021, prevMonth, 1, 11, 11, 30, 30))
-  );
-  const [prevMonthDay, setPrevMonthDay] = useState(
-    lastDayOfMonth(prevMonthDate)
   );
   const [startMonthDay, setStartMonthDay] = useState(
     getDay(startOfMonth(todayDate))
@@ -38,6 +36,7 @@ function Calendar() {
 
   const monthArr = [];
   const prevMonthArr = [];
+  const nextMonthArr = [];
   let countDay = startMonthDay + 1;
   let countWeek = 1;
 
@@ -59,6 +58,16 @@ function Calendar() {
     }
   };
   makePrevMonthArr();
+
+  let datesFilled = monthArr.length + prevMonthArr.length;
+
+  const makeNextMonthArr = () => {
+    for (let i = datesFilled; i < 42; i++) {
+      nextMonthArr.unshift(42 - i);
+    }
+    let firstDay = nextMonthArr.pop();
+  };
+  makeNextMonthArr();
 
   const findGridPosition = () => {
     if (countDay < 8) {
@@ -92,8 +101,19 @@ function Calendar() {
         </div>
       ))}
       <div className={`grid_week-1-${startMonthDay}`}>{startMonthNum}</div>
-      {monthArr.map((day) => (
-        <div key={day} className={findGridPosition()}>
+      {monthArr.map((day) =>
+        day === parseInt(todayDayNum) ? (
+          <div key={day} className={`${findGridPosition()} currentday`}>
+            {day}
+          </div>
+        ) : (
+          <div key={day} className={findGridPosition()}>
+            {day}
+          </div>
+        )
+      )}
+      {nextMonthArr.map((day) => (
+        <div key={day} className={`grid_week-6-${day - 1} not_current_month`}>
           {day}
         </div>
       ))}
