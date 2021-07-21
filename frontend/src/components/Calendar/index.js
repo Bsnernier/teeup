@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getDay, startOfToday, getDaysInMonth } from "date-fns";
+import { getDay, startOfToday, getDaysInMonth, startOfMonth } from "date-fns";
 
 import "./Calendar.css";
 
@@ -13,7 +13,9 @@ function Calendar() {
   const [todayDay, setTodayDay] = useState(getDay(todayDate));
   const [selectedDate, setSelectedDate] = useState();
   const [prevMonth, setPrevMonth] = useState();
-  const [currMonth, setCurrMonth] = useState();
+  const [startMonthDay, setStartMonthDay] = useState(
+    getDay(startOfMonth(todayDate))
+  );
   const [daysInMonth, setDaysInMonth] = useState(getDaysInMonth(todayDate));
 
   if (!sessionUser) {
@@ -29,7 +31,7 @@ function Calendar() {
       <div className="grid__day">Thursday</div>
       <div className="grid__day">Friday</div>
       <div className="grid__day">Saturday</div>
-      <div className={`grid_week-1-${todayDay}`}>{todayDay}</div>
+      <div className={`grid_week-1-${startMonthDay}`}>1</div>
       <div className="grid_week-1-test">{daysInMonth}</div>
     </div>
   );

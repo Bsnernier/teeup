@@ -61,6 +61,48 @@
   background-color: white;
 }
 
+.grid_week-1-0 {
+  grid-area: w2-0;
+  height: 200px;
+  background-color: white;
+}
+
+.grid_week-1-1 {
+  grid-area: w2-1;
+  height: 200px;
+  background-color: white;
+}
+
+.grid_week-1-2 {
+  grid-area: w2-2;
+  height: 200px;
+  background-color: white;
+}
+
+.grid_week-1-3 {
+  grid-area: w2-3;
+  height: 200px;
+  background-color: white;
+}
+
+.grid_week-1-4 {
+  grid-area: w2-4;
+  height: 200px;
+  background-color: white;
+}
+
+.grid_week-1-5 {
+  grid-area: w2-5;
+  height: 200px;
+  background-color: white;
+}
+
+.grid_week-1-6 {
+  grid-area: w2-6;
+  height: 200px;
+  background-color: white;
+}
+
 .grid_week-2 {
   grid-area: w3-0 w3-1 w3-2 w3-3 w3-4 w3-5 w3-6;
   height: 200px;
