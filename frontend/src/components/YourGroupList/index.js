@@ -53,7 +53,11 @@ function YourGroupList(title) {
               <div className="groupName" key={group.id}>
                 {group.Group.name}
               </div>
-              <button onClick={handleClick} id={group.id}>
+              <button
+                onClick={handleClick}
+                id={group.id}
+                className="leaveButton"
+              >
                 Leave Group
               </button>
             </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import { Redirect, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listClub } from "../../store/clubs";
@@ -40,7 +41,7 @@ function OneClub() {
   });
 
   return (
-    <div className="clubBubble">
+    <div className="oneClubBubble">
       <h1>{club?.id.name}</h1>
       <h3 className="clubAddress">
         {club?.id.address}, {club?.id.city}, {club?.id.state} {club?.id.zipCode}
@@ -52,9 +53,14 @@ function OneClub() {
           clubEvents.map((event) => (
             <div className="clubInfo" key={event.id}>
               <div key={event.name}>{event.name}</div>
-              <div key={event.date}>{event.date}</div>
+              <div key={event.date}>
+                {moment(event.date).format("MM-DD-YYYY")}
+              </div>
+              <div>Time: {moment(event.date).format("h:mm")}</div>
               <div key={event.capacity}>Group Capacity: {event.capacity}</div>
-              <button type="button">Reserve a Spot for Your Group!</button>
+              <button type="button" className="reserveButton">
+                Reserve a Spot for Your Group!
+              </button>
             </div>
           ))
         )}
