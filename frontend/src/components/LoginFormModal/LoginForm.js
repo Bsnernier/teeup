@@ -12,6 +12,9 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    if (e.target.value === "demo") {
+      return dispatch(sessionActions.login("demo@user.io", "password"));
+    }
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
@@ -48,6 +51,9 @@ function LoginForm() {
         />
       </label>
       <button type="submit">Log In</button>
+      <button type="submit" value="demo">
+        Demo User
+      </button>
     </form>
   );
 }
