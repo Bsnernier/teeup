@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
-// import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listGroups } from "../../store/group";
 import { listEvents, singleGroupEvents } from "../../store/events";
@@ -30,11 +29,6 @@ function EventGroupList(title) {
     setAllEvents(events.events);
   };
 
-  // const findEventByGroupId = async (id) => {
-  //   let event = await dispatch(singleGroupEvents(id));
-  //   setGroupEvents(event.groupEvents);
-  // };
-
   const findYourGroups = () => {
     allGroups.map((group) => {
       if (group.userId === sessionUser.id) yourGroups.push(group);
@@ -46,24 +40,6 @@ function EventGroupList(title) {
     findYourGroups();
   }
 
-  // const findGroupEvents = (id) => {
-  //   yourGroups.map((group) => {
-  //     // console.log("id", id);
-  //     // console.log("group", group);
-  //     allEvents.forEach((event) => {
-  //       // console.log("event", event);
-  //       if (event.id === id) {
-  //         console.log(event.name);
-  //         setGroupEvents(event.name);
-  //       }
-  //     });
-  //   });
-  //   return groupEvents;
-  // };
-
-  // const findGroupEvent = (id) => {
-  //   allEvents?.filter((event) => event.groupId === id);
-  // };
   return (
     <div className="eventBubble">
       <h1>{title.title}</h1>
@@ -77,10 +53,6 @@ function EventGroupList(title) {
                 {event.Group.name} - {event.name}
               </div>
               <div className="eventName">Club: {event.Club.name}</div>
-              {/* <div className="eventLocation">
-                Location: {event.Club.address} {event.Club.city},{" "}
-                {event.Club.state}, {event.Club.zipCode}
-              </div> */}
               <div className="eventDate">
                 Date: {moment(event.date).format("MM-DD-YYYY")}
               </div>
