@@ -149,22 +149,37 @@ function Calendar() {
         </div>
       ))}
       <div className={`grid_week-1-${startMonthDay}`}>
-        <div>{startMonthNum}</div>
-        {monthEvents[startMonthNum]?.map((event) => {
-          <div>{event}</div>;
-        })}
+        <div className="dateNum">{startMonthNum}</div>
+        <div>
+          {monthEvents[startMonthNum]?.map((event) => (
+            <div key={event} className="dateEvent">
+              {event}
+            </div>
+          ))}
+        </div>
       </div>
       {monthArr.map((day) =>
         day === parseInt(todayDayNum) ? (
           <div key={day} className={`${findGridPosition()} currentday`}>
-            <div>{day}</div>
+            <div className="dateNum">{day}</div>
+            <div>
+              {monthEvents[day]?.map((event) => (
+                <div key={event} className="dateEvent">
+                  {event}
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           <div key={day} className={findGridPosition()}>
-            <div>{day}</div>
-            {monthEvents[day]?.map((event) => {
-              <div>{event}</div>;
-            })}
+            <div className="dateNum">{day}</div>
+            <div>
+              {monthEvents[day]?.map((event) => (
+                <div key={event} className="dateEvent">
+                  {event}
+                </div>
+              ))}
+            </div>
           </div>
         )
       )}

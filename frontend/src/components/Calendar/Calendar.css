@@ -359,7 +359,7 @@
   box-sizing: border-box;
   border: black 1px solid;
 }
-
+/*******************************************END OF GRID********************************************/
 .not_current_month {
   background-color: rgb(0, 0, 0, 0.5);
   color: white;
@@ -368,4 +368,16 @@
 .currentday {
   box-sizing: border-box;
   border: tomato 5px solid;
+}
+
+.dateNum {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.dateEvent {
+  background-color: greenyellow;
+  padding: 5px;
+  box-sizing: border-box;
+  border: black 1px solid;
 }
