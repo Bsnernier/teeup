@@ -51,7 +51,7 @@ function LoginForm() {
         />
       </label>
       <button type="submit">Log In</button>
-      <button type="submit" value="demo">
+      <button type="button" value="demo">
         Demo User
       </button>
     </form>
