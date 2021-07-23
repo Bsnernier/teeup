@@ -50,7 +50,7 @@ module.exports = {
           clubId: 6,
           groupId: 9,
           name: "Clam Classic",
-          date: "2042-06-18 14:00:00",
+          date: "2021-06-28 14:00:00",
           capacity: 15000,
         },
         {
@@ -58,7 +58,7 @@ module.exports = {
           clubId: 7,
           groupId: 11,
           name: "Oyster Open",
-          date: "2021-07-01 11:00:00",
+          date: "2021-07-05 11:00:00",
           capacity: 4,
         },
         {
@@ -66,7 +66,7 @@ module.exports = {
           clubId: 8,
           groupId: 1,
           name: "Mussel Match",
-          date: "2022-04-17 08:00:00",
+          date: "2021-07-26 08:00:00",
           capacity: 200,
         },
         {
@@ -74,7 +74,7 @@ module.exports = {
           clubId: 2,
           groupId: 2,
           name: "Snail Showdown",
-          date: "2042-06-18 14:00:00",
+          date: "2021-08-01 14:00:00",
           capacity: 15000,
         },
         {
@@ -82,7 +82,7 @@ module.exports = {
           clubId: 1,
           groupId: 1,
           name: "Barnacle Battle",
-          date: "2021-07-01 11:00:00",
+          date: "2021-07-23 11:00:00",
           capacity: 4,
         },
       ],

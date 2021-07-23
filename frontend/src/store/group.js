@@ -47,11 +47,12 @@ export const addToGroup = (payload) => async (dispatch) => {
 };
 
 export const removeFromGroup = (payload) => async (dispatch) => {
-  const response = await csrfFetch(`/api/groups/${payload}`, {
+  const response = await csrfFetch(`/api/groups/${payload.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify(payload),
   });
   if (response.ok) {
     const removeReq = await response.json();
@@ -76,10 +77,9 @@ const groupReducer = (state = initialState, action) => {
       };
     }
     case LEAVE_ONE: {
-      return {
-        state,
-        id: action.id,
-      };
+      const newState = { ...state };
+      delete newState[action.id];
+      return newState;
     }
     default:
       return state;

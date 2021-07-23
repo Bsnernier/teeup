@@ -42,9 +42,10 @@ router.delete(
     const groupId = req.body.id;
     // const userId = Object.values(req.body)[0];
     const currentGroup = await UserGroup.findByPk(req.params.id);
-    if (currentGroup.id === groupId) {
-      await currentGroup.destroy();
-    }
+    // if (currentGroup.id === groupId) {
+    await currentGroup.destroy();
+    // }
+    return await res.json({ message: "Left Group" });
   })
 );
 

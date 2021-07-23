@@ -30,6 +30,7 @@ function YourGroupList(title) {
     });
     return yourGroups;
   };
+
   if (allGroups) {
     findYourGroups();
   }
@@ -37,8 +38,8 @@ function YourGroupList(title) {
   const handleClick = (e) => {
     e.preventDefault();
     const newGroupPayload = {};
-    // newGroupPayload[e.target.id] = sessionUser.id;
-    sendRemoveFromGroup(e.target.id);
+    newGroupPayload["id"] = e.target.id;
+    sendRemoveFromGroup(newGroupPayload);
   };
 
   return (
